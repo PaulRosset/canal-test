@@ -7,7 +7,6 @@ import PreHeader from "../Home/PreHeader";
 import Body from "../Home/Body";
 import EncryptedCanal from "./../../images/canal.jpg";
 import { INTROSEEN } from "./../../states/types";
-import { persistor } from "./../../components/App";
 import { Footer } from "../../components/Commons/Footer";
 
 const ContainerIntro = styled.div`
@@ -72,7 +71,7 @@ class Home extends Component {
     this.props.dispatch({
       type: INTROSEEN
     });
-    persistor.flush();
+    //persistor.flush();
   };
 
   render() {

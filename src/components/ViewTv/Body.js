@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { getDetailsAboutTvShow } from "./../../states/actions/async";
 import { Loader } from "semantic-ui-react";
 import { DetailsTv } from "./../Commons/Utils";
-import { persistor } from "../../components/App";
 
 class BodyTvShow extends Component {
   state = {
@@ -13,7 +12,6 @@ class BodyTvShow extends Component {
   componentDidMount() {
     const { id, Query } = this.props;
     this.props.dispatch(getDetailsAboutTvShow(id, Query.query.lang));
-    persistor.flush();
     this.setState({ didMount: true });
   }
 

@@ -12,3 +12,7 @@ body {
   vertical-align: middle !important;
   margin: 0 2px !important;
 }
+
+.margin {
+  margin: 10px 0;
+}

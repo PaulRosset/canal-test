@@ -11,6 +11,7 @@ import storage from "redux-persist/lib/storage";
 
 const persitConfigBasicIntro = {
   key: "Intro",
+  blacklist: ["Query"],
   storage
 };
 

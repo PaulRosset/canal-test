@@ -40,12 +40,12 @@ export const trad = {
       query: "Votre demande:",
       lang: "Langue:",
       fetcher: "Récupérateur:",
-      personalize: "Personalise ta demande!"
+      personalize: "Personalisez votre demande!"
     },
     Body: {
       currentPage: "Actuel Page:",
       allResult: "Résultat total:",
-      retrieves: "Element récupérées par page:",
+      retrieves: "Eléments disponible par page:",
       pageRight: "Aller à la prochaine page:",
       pageLeft: "Aller à la page précédante:"
     },

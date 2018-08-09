@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { getDataTvFromQuery } from "./../../states/actions/async";
 import { startLoader } from "./../../states/actions/customQuery";
 import { Message } from "../Commons/Styles";
+import { persistor } from "../App";
 
 const PreHeaderContainer = styled.div`
   padding: 5px 0;
@@ -20,7 +21,7 @@ const ContainerDescriptionModal = styled.div`
   width: 100%;
   padding: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: ${props => (props.screenPhone ? "column" : "row")};
   justify-content: space-evenly;
 `;
 
@@ -29,7 +30,12 @@ const QueryResume = styled.div`
 `;
 
 class PreHeader extends Component {
-  state = { open: false, lang: "fr-FR", fetcher: "discover" };
+  state = {
+    open: false,
+    lang: "fr-FR",
+    fetcher: "discover",
+    screenPhone: false
+  };
 
   show = () => this.setState({ open: true });
 
@@ -42,8 +48,13 @@ class PreHeader extends Component {
       // Launch the query
       this.props.dispatch(startLoader());
       this.props.dispatch(getDataTvFromQuery({ lang, fetcher, page: 1 }));
+      persistor.purge().then(() => {
+        console.log("purged");
+      });
+      persistor.flush().then(() => {
+        console.log("flush");
+      });
       this.setState({ open: false });
-      localStorage.removeItem("persist:Query");
     }
   };
 
@@ -56,6 +67,12 @@ class PreHeader extends Component {
   handleWhatToFetch = (_, { value }) => {
     this.setState({ fetcher: value });
   };
+
+  componentDidMount() {
+    if (!window.matchMedia("(min-width: 480px)").matches) {
+      this.setState({ screenPhone: true });
+    }
+  }
 
   render() {
     const { open } = this.state;
@@ -85,8 +102,9 @@ class PreHeader extends Component {
         )}
         <Modal open={open} onClose={this.close} dimmer="blurring">
           <Modal.Header>{trad[Query.query.lang].Fetcher.header}</Modal.Header>
-          <ContainerDescriptionModal>
+          <ContainerDescriptionModal screenPhone={this.state.screenPhone}>
             <Select
+              className={this.state.screenPhone ? "margin" : null}
               placeholder={trad[Query.query.lang].Fetcher.lang}
               options={countryOptions}
               onChange={this.handleLang}

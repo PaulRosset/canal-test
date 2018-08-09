@@ -8,6 +8,7 @@ import { Loading, TvShow } from "../Commons/Utils";
 import { withRouter } from "react-router-dom";
 import { startLoader } from "./../../states/actions/customQuery";
 import { trad } from "../../utils/traductionsData";
+import { persistor } from "../App";
 
 const BodyContainer = styled.div`
   margin: 20px 0;
@@ -39,6 +40,12 @@ class Body extends Component {
         Query.query.fetcher === "discover" ? "base" : "nobase"
       )
     );
+    persistor.purge().then(() => {
+      console.log("purged");
+    });
+    persistor.flush().then(() => {
+      console.log("flush");
+    });
     this.setState({ didMount: true });
   }
 
