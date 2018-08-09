@@ -146,7 +146,7 @@ describe("Testing redux actions", () => {
         expect(reducers.Query(undefined, {})).toEqual({
           loading: true,
           query: {
-            lang: "en-US",
+            lang: "fr-FR",
             fetcher: "discover",
             page: 1
           },
