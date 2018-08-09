@@ -6,7 +6,7 @@
 
 #### The movie list...
 
-Fetched data grapped from: [https://developers.themoviedb.org/3/getting-started/introduction](API - The movie database)
+Fetched data grapped from: [https://developers.themoviedb.org/3/getting-started/introduction](API) The movie database
 
 #### Stack
 
