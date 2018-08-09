@@ -2,9 +2,11 @@
 
 [Canal+ - The movie database 🎥](https://canalplus.paulrossethings.com)
 
+[![Travis CI Build Status](https://travis-ci.org/PaulRosset/canal-test.svg?branch=master)](https://travis-ci.org/PaulRosset/canal-test)
+
 #### The movie list...
 
-[![Travis CI Build Status](https://travis-ci.org/PaulRosset/canal-test.svg?branch=master)](https://travis-ci.org/PaulRosset/canal-test)
+Fetched data grapped from: [https://developers.themoviedb.org/3/getting-started/introduction](API - The movie database)
 
 #### Stack
 
