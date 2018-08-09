@@ -40,12 +40,12 @@ export const trad = {
       query: "Votre demande:",
       lang: "Langue:",
       fetcher: "Récupérateur:",
-      personalize: "Personalisez votre demande!"
+      personalize: "Personnalisez votre demande"
     },
     Body: {
       currentPage: "Actuel Page:",
       allResult: "Résultat total:",
-      retrieves: "Eléments disponible par page:",
+      retrieves: "Eléments disponibles par page:",
       pageRight: "Aller à la prochaine page:",
       pageLeft: "Aller à la page précédante:"
     },
@@ -66,8 +66,8 @@ export const trad = {
     },
     Fetcher: {
       header: "Récupérateur de demande",
-      lang: "Choissisez votre demande",
-      fetcher: "Qu'est ce que vous voulez récupérer?",
+      lang: "Langue",
+      fetcher: "Votre recherche",
       buttonFetch: "Récupérer du nouveau contenu"
     }
   },

@@ -44,7 +44,7 @@ export const TvShow = ({
     <Card.Content>
       <Image
         floated="right"
-        size="mini"
+        size="tiny"
         src={`https://image.tmdb.org/t/p/w185${poster}`}
       />
       <Card.Header>{name}</Card.Header>
