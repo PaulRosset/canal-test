@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import Thunk from "redux-thunk";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Pages/Home";
-import Why from "./Pages/Why";
 import ViewTv from "./Pages/ViewTv";
 import { Intro, Query, Details, Loader } from "./../states/reducers";
 import { persistStore, persistReducer } from "redux-persist";
@@ -15,9 +14,14 @@ const persitConfigBasicIntro = {
   storage
 };
 
+const persitConfigBasicQuery = {
+  key: "Query",
+  storage
+};
+
 const reducers = combineReducers({
   Intro: persistReducer(persitConfigBasicIntro, Intro),
-  Query,
+  Query: persistReducer(persitConfigBasicQuery, Query),
   Details,
   Loader
 });
@@ -37,7 +41,6 @@ export default () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/tvshow/:id" component={ViewTv} />
-        <Route path="/why" component={Why} />
       </Switch>
     </Router>
   </Provider>

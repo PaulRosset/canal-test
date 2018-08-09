@@ -8,6 +8,7 @@ import Body from "../Home/Body";
 import EncryptedCanal from "./../../images/canal.jpg";
 import { INTROSEEN } from "./../../states/types";
 import { persistor } from "./../../components/App";
+import { Footer } from "../../components/Commons/Footer";
 
 const ContainerIntro = styled.div`
   width: 100%;
@@ -58,7 +59,7 @@ const Button = styled.button`
 const IntroPanel = ({ handleComeIn }) => (
   <ContainerIntro>
     <Button onClick={handleComeIn}>
-      Come in, you got a subscription!{" "}
+      Pour décrypter, cliquer ici!{" "}
       <span role="img" aria-label="awesome">
         🤩
       </span>{" "}
@@ -87,6 +88,7 @@ class Home extends Component {
               <PreHeader />
               <Body />
             </ContainerBody>
+            <Footer />
           </Fragment>
         )}
       </Fragment>

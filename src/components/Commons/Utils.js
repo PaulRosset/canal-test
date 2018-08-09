@@ -10,6 +10,7 @@ import {
   Icon
 } from "semantic-ui-react";
 import styled from "styled-components";
+import { trad } from "./../../utils/traductionsData";
 
 const DisplayInfosMeta = styled.div`
   display: flex;
@@ -17,11 +18,14 @@ const DisplayInfosMeta = styled.div`
 `;
 
 export const Loading = () => (
-  <Segment basic>
+  <Segment basic textAlign="center">
     <Dimmer active inverted>
       <Loader size="medium">Loading</Loader>
     </Dimmer>
-    <Image src="https://react.semantic-ui.com/images/wireframe/paragraph.png" />
+    <Image
+      centered
+      src="https://react.semantic-ui.com/images/wireframe/paragraph.png"
+    />
   </Segment>
 );
 
@@ -33,7 +37,8 @@ export const TvShow = ({
   originalCountry,
   overview,
   poster,
-  handleDetailCard
+  handleDetailCard,
+  lang
 }) => (
   <Card>
     <Card.Content>
@@ -43,10 +48,10 @@ export const TvShow = ({
         src={`https://image.tmdb.org/t/p/w185${poster}`}
       />
       <Card.Header>{name}</Card.Header>
-      <Card.Meta>{`First air date: ${firstAirDate}`}</Card.Meta>
-      <Card.Meta>{`Popularity: ${popularity}`}</Card.Meta>
+      <Card.Meta>{`${trad[lang].Card.airDate} ${firstAirDate}`}</Card.Meta>
+      <Card.Meta>{`${trad[lang].Card.pop} ${popularity}`}</Card.Meta>
       <Card.Meta>
-        Original Country:{" "}
+        {trad[lang].Card.originCountry}{" "}
         {originalCountry.map((country, index) => (
           <Flag key={index} className="vAlign" name={country.toLowerCase()} />
         ))}
@@ -55,8 +60,14 @@ export const TvShow = ({
     </Card.Content>
     <Card.Content extra>
       <div className="ui two buttons">
-        <Button basic color="green" onClick={handleDetailCard} id={id}>
-          See more details...
+        <Button
+          basic
+          color="green"
+          onClick={handleDetailCard}
+          id={id}
+          className="test"
+        >
+          {trad[lang].Card.button}
         </Button>
       </div>
     </Card.Content>
@@ -85,7 +96,8 @@ export const DetailsTv = ({
   countrys,
   overview,
   nbEpisodes,
-  nbSeasons
+  nbSeasons,
+  lang
 }) => (
   <Card fluid centered>
     <Image
@@ -100,18 +112,22 @@ export const DetailsTv = ({
           <Flag key={index} className="vAlign" name={country.toLowerCase()} />
         ))}
         <Delimiter />
-        <h4 className="noMargin">Created by:</h4>
+        <h4 className="noMargin">{trad[lang].Details.createBy}</h4>
         {createdBy.map((author, index) => (
           <DisplayInfosMeta key={index}>{author.name}</DisplayInfosMeta>
         ))}
         <Delimiter />
-        <h4 className="noMargin">Average run time of episodes:</h4>
+        <h4 className="noMargin">{trad[lang].Details.avgTimeEpi}</h4>
         {episodeRunTime.map((epi, index) => (
           <DisplayInfosMeta key={index}>{epi} minutes</DisplayInfosMeta>
         ))}
         <Delimiter />
-        <h4 className="noMargin">First air date: {firstAirDate}</h4>
-        <h4 className="noMargin">Last air date: {lastAirDate}</h4>
+        <h4 className="noMargin">
+          {trad[lang].Details.firstAirDate} {firstAirDate}
+        </h4>
+        <h4 className="noMargin">
+          {trad[lang].Details.lastAirDate} {lastAirDate}
+        </h4>
         <Delimiter />
         <h4 className="noMargin">Genres:</h4>
         {genres.map((genre, index) => (
@@ -123,13 +139,17 @@ export const DetailsTv = ({
     </Card.Content>
     <Card.Content extra>
       <SeasonsContainer>
-        <h4 className="noMargin">Number of seasons: {nbSeasons}</h4>
-        <h4 className="noMargin">Number of episodes: {nbEpisodes}</h4>
+        <h4 className="noMargin">
+          {trad[lang].Details.nbSeasons} {nbSeasons}
+        </h4>
+        <h4 className="noMargin">
+          {trad[lang].Details.nbEpi} {nbEpisodes}
+        </h4>
       </SeasonsContainer>
       <Delimiter />
       <a href={web}>
         <Icon name="share" />
-        Official web site
+        {trad[lang].Details.webTitle}
       </a>
     </Card.Content>
   </Card>

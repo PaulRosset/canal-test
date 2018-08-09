@@ -7,6 +7,7 @@ import { Message } from "../Commons/Styles";
 import { Loading, TvShow } from "../Commons/Utils";
 import { withRouter } from "react-router-dom";
 import { startLoader } from "./../../states/actions/customQuery";
+import { trad } from "../../utils/traductionsData";
 
 const BodyContainer = styled.div`
   margin: 20px 0;
@@ -87,17 +88,17 @@ class Body extends Component {
       <BodyContainer>
         <HeaderMetrics>
           <h5 className="noMargin">
-            Current Page:{" "}
+            {trad[Query.query.lang].Body.currentPage}{" "}
             <Message color="#21ba45">
               {Query.result.pages}/{Query.result.total_pages}
             </Message>
           </h5>
           <h5 className="noMargin">
-            Total Results:{" "}
+            {trad[Query.query.lang].Body.allResult}{" "}
             <Message color="#21ba45">{Query.result.total_results}</Message>
           </h5>
           <h5 className="noMargin">
-            Elements retrieves per page:{" "}
+            {trad[Query.query.lang].Body.retrieves}{" "}
             <Message color="#21ba45">{Query.result.dataMovie.length}</Message>
           </h5>
           <ActionsPage>
@@ -111,7 +112,7 @@ class Body extends Component {
                     onClick={this.handlePreviousPage}
                   />
                 }
-                content="Go to the previous page"
+                content={trad[Query.query.lang].Body.pageLeft}
               />
             )}
             {Query.result.pages === Query.result.total_pages ? null : (
@@ -124,7 +125,7 @@ class Body extends Component {
                     onClick={this.handleNextPage}
                   />
                 }
-                content="Go to the next page"
+                content={trad[Query.query.lang].Body.pageRight}
               />
             )}
           </ActionsPage>
@@ -141,6 +142,7 @@ class Body extends Component {
               overview={tvShow.overview}
               poster={tvShow.poster_path}
               handleDetailCard={this.handleDetailCard}
+              lang={Query.query.lang}
             />
           ))}
         </Card.Group>

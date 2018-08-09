@@ -11,7 +11,7 @@ import {
 const defaultStateQuery = {
   loading: true,
   query: {
-    lang: "en-US",
+    lang: "fr-FR",
     fetcher: "discover",
     page: 1
   },

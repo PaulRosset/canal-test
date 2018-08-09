@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { Icon } from "semantic-ui-react";
+import { Icon, Image } from "semantic-ui-react";
 import { Rehover } from "rehover";
 import { Link } from "react-router-dom";
+import CanalLogo from "./../../images/canalLogo.png";
 
 const HeaderContainer = styled.div`
-  background-color: #1f2126;
+  background-color: #000;
   height: 5em;
 `;
 
@@ -42,7 +43,7 @@ function Header() {
   return (
     <HeaderContainer>
       <HeaderItems>
-        <p className="noMargin">polo</p>
+        <Image src={CanalLogo} size="small" link href="/" />
         <div>
           <Rehover delay={150}>
             <Icon
@@ -55,7 +56,6 @@ function Header() {
             />
             <HeaderSubMenuContainer destination="true">
               <LinkWrapper to="/">Home</LinkWrapper>
-              <LinkWrapper to="/why">Why</LinkWrapper>
             </HeaderSubMenuContainer>
           </Rehover>
         </div>
