@@ -12,6 +12,10 @@ Fetched data grapped from: [API - The Movie Database](https://developers.themovi
 
 ---
 
+### Introduction picture
+
+Clear your browser cache to see it again, if you liked it :)
+
 ### Stack
 
 - Functionnal
